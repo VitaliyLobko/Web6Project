@@ -1,0 +1,35 @@
+{% extends "project/base.html" %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        {% if error %}
+        <div>
+            <mark>{{ error }}</mark>
+        </div>
+        {% endif %}
+
+        <div class="row mb-3">
+            <h2>Add tag</h2>
+        </div>
+
+        <form class="col-sm-6 rounded shadow-lg py-2" method="POST" action="{% url 'usertag' %}">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <div class="input-group">
+                    <span class="input-group-text" id="addon-wrapping">Enter the tag name:</span>
+                        <input class="form-control col-sm-12" type="text" name="name" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary col-sm-12 mb-2" type="submit">Submit</button>
+                <button class="btn btn-outline-danger col-sm-12 secondary" type="reset">Reset</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

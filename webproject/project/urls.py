@@ -1,0 +1,36 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.main, name='main'),
+    path('add_tags/', views.tag, name='usertag'),
+    path('add_note/', views.note, name='add_note'),
+    path('done_note/<int:note_id>', views.set_done_note, name='set_done_note'),
+    path('delete/<int:note_id>', views.delete_note, name='delete_note'),
+    path('show_notes/', views.show_notes, name='show_notes'),
+    path('show_notes/<str:filter>', views.filter_note, name='filter_note'),
+    path('signup/', views.user_signup, name='user_signup'),
+    path('login/', views.user_login, name='user_login'),
+    path('logout/', views.user_logout, name='user_logout'),
+    # path('contact/', views.addressbook, name='contact'),
+    path('contact/add/', views.add_contact, name='add_contact'),
+    path('contacts/edit/<int:ab_id>', views.edit_ab, name='edit_ab'),
+    path('phones/edit/<int:ab_id>', views.phones_edit, name='phones_edit'),
+    path('emails/edit/<int:ab_id>', views.emails_edit, name='emails_edit'),
+    path('phones/delete/<int:ph_id>', views.phone_del, name='phone_del'),
+    path('emails/delete/<int:em_id>', views.email_del, name='email_del'),
+    path('show_contacts/', views.show_addressbook, name='show_contacts'),
+    path('contacts/delete/<int:ab_id>', views.delete_ab, name='delete_ab'),
+    path('show_contacts/<str:filter>', views.filter_addressbook, name='filter_addressbook'),
+    path('show_contacts/search', views.search, name='search'),
+    path('show_contacts/to_birthday', views.days_to_birthday, name='days_to_birthday'),
+    path('edit_note/<int:note_id>', views.edit_note, name='edit_note'),
+    path('info_collector/', views.parser, name='parser'),
+    path('detail_note/<int:note_id>', views.detail_note, name='detail_note'),
+    path('files/', views.view_files, name='view_files'),
+    path('files/filter/<str:filt>', views.filter_files, name='filter_files'),
+    path('files/add/', views.file_upload, name='file_upload'),
+    path('files/down/<int:file_id>', views.file_download, name='file_download'),
+    path('about_us', views.about_us, name='about_us'),
+
+]

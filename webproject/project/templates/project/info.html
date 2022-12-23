@@ -1,0 +1,44 @@
+{% extends "project/base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="justify-content-center mb-5">
+        <div class="row mb-3">
+            <h2>Info collector</h2>
+        </div>
+        <div class="border rounded shadow-lg w-25 p-3">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>Currency</td>
+                    <td>Sale</td>
+                    <td>Buy</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for line in currency %}
+                <tr>
+                    <td><strong>{{line.currency_name}}</strong></td>
+                    <td>{{line.buy}}</td>
+                    <td>{{line.sale}}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+       <div class="border rounded mt-5 p-3">
+                <table class="table table-striped">
+                    <tbody>
+                    {% for line in news %}
+                    <tr>
+                        <td>{{line.dtime}}</td>
+                        <td><a href="{{line.href}}" class="link-secondary text-decoration-none"
+                               target="blank">{{line.title}}<small class="text-muted"> ({{line.source}})</small></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
